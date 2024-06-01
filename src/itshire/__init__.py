@@ -1,11 +1,14 @@
-import sys
+import logging
 
-from . import main2
+from . import cli
+from . import log as logmod
 
 __project_name__ = "itshire"
 
 
 def main() -> int:
-    out = main2.render_template("extended.j2")
-    sys.stdout.write(out)
+    args = cli.parse_args()
+    logmod.configure_logging(args.verbose)
+    logging.debug("test")
+    print("hello")
     return 0

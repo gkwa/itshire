@@ -1,7 +1,9 @@
-import argparse
+import logging
 import sys
 
 import mistletoe
+
+from . import cli
 
 
 def extract_headers(file_path):
@@ -33,15 +35,16 @@ def add_section(file_path, section_name):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Add sections to markdown files.")
-    parser.add_argument(
-        "stores", metavar="store", type=str, nargs="+", help="stores to add as sections"
-    )
-    args = parser.parse_args()
+    args = cli.parse_args()
 
-    file_paths = [line.strip() for line in sys.stdin]
+    file_paths = [line.strip() for line in sys.stdin if line.strip()]
 
     for file_path in file_paths:
+        logging.info(f"file path: {file_path}")
+        if not file_path.startswith("/"):
+            print(f"Skipping invalid file path: {file_path}")
+            continue
+
         existing_headers = extract_headers(file_path)
         for store in args.stores:
             if store not in existing_headers:
