@@ -13,6 +13,7 @@ def extract_headers(file_path):
 
     def _traverse(node):
         if isinstance(node, mistletoe.block_token.Heading):
+            logging.debug(parsed_markdown)
             headers.append(node.children[0].content)
         for child in getattr(node, "children", []):
             _traverse(child)
