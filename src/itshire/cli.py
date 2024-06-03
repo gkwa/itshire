@@ -4,10 +4,15 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser(description="Add sections to markdown files.")
     parser.add_argument(
-        "stores", metavar="store", type=str, nargs="+", help="stores to add as sections"
+        "-v", "--verbose", action="store_true", help="Enable verbose output"
     )
 
-    parser.add_argument(
+    subparsers = parser.add_subparsers(dest="command")
+
+    addstores_parser = subparsers.add_parser(
+        "addstores", help="Add stores as sections to markdown files from stdin"
+    )
+    addstores_parser.add_argument(
         "-v", "--verbose", action="store_true", help="Enable verbose output"
     )
 

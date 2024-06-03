@@ -3,8 +3,6 @@ import sys
 
 import mistletoe
 
-from . import cli
-
 
 def extract_headers(file_path):
     with open(file_path, "r") as file:
@@ -35,9 +33,17 @@ def add_section(file_path, section_name):
 
 
 def main():
-    args = cli.parse_args()
-
     file_paths = [line.strip() for line in sys.stdin if line.strip()]
+
+    stores = [
+        "Central Co-op",
+        "Hau Hau Market",
+        "M2M",
+        "PCC",
+        "Safeway",
+        "Trader Joes",
+        "Uwajimaya",
+    ]
 
     for file_path in file_paths:
         logging.info(f"file path: {file_path}")
@@ -46,9 +52,9 @@ def main():
             continue
 
         existing_headers = extract_headers(file_path)
-        for store in args.stores:
-            if store not in existing_headers:
-                add_section(file_path, store)
+        for store_name in stores:
+            if store_name not in existing_headers:
+                add_section(file_path, store_name)
 
     print("Sections added successfully.")
 
