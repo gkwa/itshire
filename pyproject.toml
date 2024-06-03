@@ -24,6 +24,7 @@ build-backend = "hatchling.build"
 managed = true
 dev-dependencies = [
     "black>=24.2.0",
+    "pytest>=8.2.1",
 ]
 
 [tool.hatch.metadata]
