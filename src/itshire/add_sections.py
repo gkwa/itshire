@@ -1,4 +1,5 @@
 import logging
+import pathlib
 import sys
 
 import mistletoe
@@ -13,8 +14,16 @@ def extract_headers(file_path):
 
     def _traverse(node):
         if isinstance(node, mistletoe.block_token.Heading):
-            logging.debug(parsed_markdown)
-            headers.append(node.children[0].content)
+            logging.debug(node.children[0])
+            header_text = ""
+            for child in node.children:
+                if isinstance(child, mistletoe.span_token.RawText):
+                    header_text += child.content
+                elif isinstance(child, mistletoe.span_token.Strong):
+                    for strong_child in child.children:
+                        if isinstance(strong_child, mistletoe.span_token.RawText):
+                            header_text += strong_child.content
+            headers.append(header_text.strip())
         for child in getattr(node, "children", []):
             _traverse(child)
 
@@ -35,6 +44,9 @@ def add_section(file_path, section_name):
 
 def main():
     file_paths = [line.strip() for line in sys.stdin if line.strip()]
+    file_paths = [pathlib.Path(s) for s in file_paths]
+
+    logging.debug(file_paths)
 
     stores = [
         "Central Co-op",
@@ -47,10 +59,7 @@ def main():
     ]
 
     for file_path in file_paths:
-        logging.info(f"file path: {file_path}")
-        if not file_path.startswith("/"):
-            print(f"Skipping invalid file path: {file_path}")
-            continue
+        logging.info(f"file path: {file_path.absolute()}")
 
         existing_headers = extract_headers(file_path)
         for store_name in stores:
