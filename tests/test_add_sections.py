@@ -68,3 +68,29 @@ def test_extract_headers_inline_code(test_file_inline_code):
         "Section code",
         "Section code",
     ]
+
+
+@pytest.fixture
+def test_file_internal_links(tmp_path):
+    test_file_path = tmp_path / "test_file_internal_links.md"
+    with open(test_file_path, "w") as file:
+        file.write(
+            "# Section [[link1]]\n"
+            "## Section [[link2]] with text\n"
+            "### **Section** [[link3]] and *more* text\n"
+            "#### Section with [[link4]] and `code`\n"
+            "##### [[link5]] at the beginning"
+        )
+    yield test_file_path
+    os.remove(test_file_path)
+
+
+def test_extract_headers_internal_links(test_file_internal_links):
+    headers = extract_headers(test_file_internal_links)
+    assert headers == [
+        "Section [[link1]]",
+        "Section [[link2]] with text",
+        "Section [[link3]] and more text",
+        "Section with [[link4]] and code",
+        "[[link5]] at the beginning",
+    ]
