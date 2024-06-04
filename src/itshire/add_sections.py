@@ -31,13 +31,14 @@ def extract_headers(file_path):
     return headers
 
 
-def add_section(file_path, section_name):
+def add_sections(file_path, section_names):
     with open(file_path, "r") as file:
         markdown_content = file.read()
     original_checksum = hashlib.md5(markdown_content.encode("utf-8")).hexdigest()
 
-    if section_name not in markdown_content:
-        markdown_content += f"\n## [[{section_name}]]\n- [x] shopping\n"
+    for section_name in section_names:
+        if section_name not in markdown_content:
+            markdown_content += f"\n## [[{section_name}]]\n- [x] shopping\n"
 
     modified_checksum = hashlib.md5(markdown_content.encode("utf-8")).hexdigest()
 
@@ -59,12 +60,16 @@ def main():
         "Trader Joes",
         "Uwajimaya",
     ]
+
     for file_path in file_paths:
         logging.info(f"file path: {file_path.absolute()}")
         existing_headers = extract_headers(file_path)
-        for store_name in stores:
-            if store_name not in existing_headers:
-                add_section(file_path, store_name)
+        missing_sections = [
+            store_name for store_name in stores if store_name not in existing_headers
+        ]
+        if missing_sections:
+            add_sections(file_path, missing_sections)
+
     print("Sections added successfully.")
 
 
