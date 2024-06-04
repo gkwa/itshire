@@ -1,4 +1,3 @@
-import hashlib
 import logging
 import pathlib
 import sys
@@ -34,15 +33,14 @@ def extract_headers(file_path):
 def add_sections(file_path, section_names):
     with open(file_path, "r") as file:
         markdown_content = file.read()
-    original_checksum = hashlib.md5(markdown_content.encode("utf-8")).hexdigest()
+
+    original_content = markdown_content
 
     for section_name in section_names:
         if section_name not in markdown_content:
             markdown_content += f"\n## [[{section_name}]]\n- [x] shopping\n"
 
-    modified_checksum = hashlib.md5(markdown_content.encode("utf-8")).hexdigest()
-
-    if original_checksum != modified_checksum:
+    if markdown_content != original_content:
         with open(file_path, "w") as file:
             file.write(markdown_content)
 
