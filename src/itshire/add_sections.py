@@ -54,6 +54,7 @@ def main():
         "Hau Hau Market",
         "M2M",
         "PCC",
+        "QFC",
         "Safeway",
         "Trader Joes",
         "Uwajimaya",
