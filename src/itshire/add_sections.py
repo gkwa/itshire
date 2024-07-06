@@ -58,6 +58,7 @@ def main():
         "Safeway",
         "Trader Joes",
         "Uwajimaya",
+        "Whole Foods",
     ]
 
     for file_path in file_paths:
