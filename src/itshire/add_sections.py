@@ -58,6 +58,7 @@ def main():
         "Safeway",
         "Trader Joes",
         "Uwajimaya",
+        "Grocery Outlet",
         "Whole Foods",
     ]
 
