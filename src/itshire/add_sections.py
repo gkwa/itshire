@@ -51,6 +51,7 @@ def main():
     logging.debug(file_paths)
     stores = [
         "Central Co-op",
+        "Grocery Outlet",
         "Hau Hau Market",
         "M2M",
         "PCC",
@@ -58,7 +59,6 @@ def main():
         "Safeway",
         "Trader Joes",
         "Uwajimaya",
-        "Grocery Outlet",
         "Whole Foods",
     ]
 
