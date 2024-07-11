@@ -50,6 +50,7 @@ def main():
     file_paths = [pathlib.Path(s) for s in file_paths]
     logging.debug(file_paths)
     stores = [
+        "Amazon.com",
         "Central Co-op",
         "Grocery Outlet",
         "Hau Hau Market",
