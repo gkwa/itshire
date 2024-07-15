@@ -11,7 +11,7 @@ def main() -> int:
     logging.debug("fart")
 
     if args.command == "addstores":
-        add_sections.main()
+        add_sections.main(args.directory)
     else:
         print("hello")
 

@@ -1,7 +1,7 @@
 import logging
 import pathlib
-import sys
 
+import frontmatter
 import mistletoe
 
 
@@ -45,10 +45,28 @@ def add_sections(file_path, section_names):
             file.write(markdown_content)
 
 
-def main():
-    file_paths = [line.strip() for line in sys.stdin if line.strip()]
-    file_paths = [pathlib.Path(s) for s in file_paths]
-    logging.debug(file_paths)
+def find_markdown_files(directory):
+    return list(pathlib.Path(directory).rglob("*.md"))
+
+
+def filter_markdown_files(files):
+    filtered_files = []
+    for file in files:
+        try:
+            with open(file, "r", encoding="utf-8") as f:
+                post = frontmatter.load(f)
+                if post.get("filetype") == "product":
+                    filtered_files.append(file)
+        except Exception as e:
+            logging.error(f"Error processing file {file}: {str(e)}")
+    return filtered_files
+
+
+def main(directory):
+    markdown_files = find_markdown_files(directory)
+    filtered_files = filter_markdown_files(markdown_files)
+    logging.debug(f"Filtered files: {filtered_files}")
+
     stores = [
         "Amazon.com",
         "Central Co-op",
@@ -63,8 +81,8 @@ def main():
         "Whole Foods",
     ]
 
-    for file_path in file_paths:
-        logging.info(f"file path: {file_path.absolute()}")
+    for file_path in filtered_files:
+        logging.info(f"Processing file: {file_path}")
         existing_headers = extract_headers(file_path)
         missing_sections = [
             store_name for store_name in stores if store_name not in existing_headers
@@ -73,7 +91,3 @@ def main():
             add_sections(file_path, missing_sections)
 
     print("Sections added successfully.")
-
-
-if __name__ == "__main__":
-    main()
