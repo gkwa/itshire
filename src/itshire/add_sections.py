@@ -72,6 +72,7 @@ def main(directory):
         "Central Co-op",
         "Grocery Outlet",
         "Hau Hau Market",
+        "H Mart"
         "M2M",
         "PCC",
         "QFC",
