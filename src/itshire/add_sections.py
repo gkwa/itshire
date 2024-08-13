@@ -36,10 +36,8 @@ def add_sections(file_path, section_names):
 
     original_content = markdown_content
 
-    print(f"section_names: {section_names}")
-
     for section_name in section_names:
-        if section_name not in section_names:
+        if section_name not in markdown_content:
             markdown_content += f"\n## [[{section_name}]]\n- [x] shopping\n"
 
     if markdown_content != original_content:
@@ -48,7 +46,7 @@ def add_sections(file_path, section_names):
 
 
 def find_markdown_files(directory):
-    return list(pathlib.Path(directory).rglob("Anchor*.md"))
+    return list(pathlib.Path(directory).rglob("*.md"))
 
 
 def filter_markdown_files(files):
@@ -74,7 +72,6 @@ def main(directory):
         "Central Co-op",
         "Grocery Outlet",
         "Hau Hau Market",
-        "H Mart",
         "Lam's Seafood Asian Market",
         "M2M",
         "PCC",
@@ -88,17 +85,9 @@ def main(directory):
     for file_path in filtered_files:
         logging.info(f"Processing file: {file_path}")
         existing_headers = extract_headers(file_path)
-
         missing_sections = [
             store_name for store_name in stores if store_name not in existing_headers
         ]
-
-        for e in existing_headers:
-            print(f"existing_header: {e}")
-
-        for e in missing_sections:
-            print(f"missing_section: {e}")
-
         if missing_sections:
             add_sections(file_path, missing_sections)
 
