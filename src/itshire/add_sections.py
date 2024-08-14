@@ -74,6 +74,7 @@ def main(directory):
         "Hau Hau Market",
         "Lam's Seafood Asian Market",
         "M2M",
+        "Pacific Supply",
         "PCC",
         "QFC",
         "Safeway",
