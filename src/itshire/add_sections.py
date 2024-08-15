@@ -80,6 +80,7 @@ def main(directory):
         "Safeway",
         "Trader Joes",
         "Uwajimaya",
+        "Walgreens",
         "Whole Foods",
     ]
 
