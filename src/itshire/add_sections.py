@@ -71,6 +71,7 @@ def main(directory):
         "Amazon.com",
         "Central Co-op",
         "Grocery Outlet",
+        "Chef's Store",
         "Hau Hau Market",
         "Lam's Seafood Asian Market",
         "M2M",
