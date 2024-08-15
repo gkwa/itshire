@@ -78,6 +78,7 @@ def main(directory):
         "PCC",
         "QFC",
         "Safeway",
+        "Target",
         "Trader Joes",
         "Uwajimaya",
         "Walgreens",
