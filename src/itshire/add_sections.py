@@ -83,6 +83,7 @@ def main(directory):
         "Trader Joes",
         "Uwajimaya",
         "Walgreens",
+        "Walmart",
         "Whole Foods",
     ]
 
