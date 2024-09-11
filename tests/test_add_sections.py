@@ -1,6 +1,7 @@
 import os
 
 import pytest
+
 from itshire.add_sections import extract_headers
 
 
