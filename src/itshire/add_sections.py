@@ -85,8 +85,10 @@ def main(directory):
     stores = [
         "Amazon.com",
         "Central Co-op",
-        "Grocery Outlet",
         "Chef's Store",
+        "Costco",
+        "Fred Meyer",
+        "Grocery Outlet",
         "Hau Hau Market",
         "Lam's Seafood Asian Market",
         "M2M",
