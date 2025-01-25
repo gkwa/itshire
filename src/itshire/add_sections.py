@@ -90,6 +90,7 @@ def main(directory):
         "Fred Meyer",
         "Grocery Outlet",
         "Hau Hau Market",
+        "H Mart",
         "Lam's Seafood Asian Market",
         "M2M",
         "Pacific Supply",
