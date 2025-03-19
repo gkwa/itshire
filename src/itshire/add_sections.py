@@ -83,6 +83,7 @@ def main(directory):
     logging.debug(f"Filtered files: {filtered_files}")
 
     stores = [
+        "Amazon Fresh",
         "Amazon.com",
         "Central Co-op",
         "Chef's Store",
