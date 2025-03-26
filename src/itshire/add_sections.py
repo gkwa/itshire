@@ -93,6 +93,7 @@ def main(directory):
         "Grocery Outlet",
         "H Mart",
         "Hau Hau Market",
+        "Home Depot",
         "Lam's Seafood Asian Market",
         "M2M",
         "Pacific Supply",
