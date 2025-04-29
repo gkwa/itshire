@@ -89,6 +89,7 @@ def main(directory):
         "Chef's Store",
         "Costco",
         "Dong Hing Market",
+        "Franz Bakery",
         "Fred Meyer",
         "Grocery Outlet",
         "H Mart",
