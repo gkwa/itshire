@@ -96,6 +96,7 @@ def main(directory):
         "Hau Hau Market",
         "Home Depot",
         "Lam's Seafood Asian Market",
+        "Lowe's",
         "M2M",
         "Pacific Supply",
         "PCC",
