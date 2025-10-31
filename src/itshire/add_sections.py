@@ -103,6 +103,7 @@ def main(directory):
         "QFC",
         "Safeway",
         "Target",
+        "Than Son Tofu and Bakery",
         "Trader Joes",
         "Uwajimaya",
         "Walgreens",
