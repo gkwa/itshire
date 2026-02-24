@@ -95,6 +95,7 @@ def main(directory):
         "H Mart",
         "Hau Hau Market",
         "Home Depot",
+        "India Depot Indian Grocery, Kitchen & Bakery",
         "Lam's Seafood Asian Market",
         "Lowe's",
         "M2M",
