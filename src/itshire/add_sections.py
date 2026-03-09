@@ -70,7 +70,7 @@ def filter_markdown_files(files):
         try:
             with open(file, "r", encoding="utf-8") as f:
                 post = frontmatter.load(f)
-                if post.get("filetype") == "product":
+                if "product" in post.get("tags", []):
                     filtered_files.append(file)
         except Exception as e:
             logging.debug(f"Skipping {file}, no valid frontmatter: {str(e)}")
