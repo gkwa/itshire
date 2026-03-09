@@ -73,7 +73,7 @@ def filter_markdown_files(files):
                 if post.get("filetype") == "product":
                     filtered_files.append(file)
         except Exception as e:
-            logging.error(f"Error processing file {file}: {str(e)}")
+            logging.debug(f"Skipping {file}, no valid frontmatter: {str(e)}")
     return filtered_files
 
 
