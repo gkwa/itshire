@@ -13,7 +13,7 @@ def extract_headers(file_path):
 
     def _traverse(node):
         if isinstance(node, mistletoe.block_token.Heading):
-            header_text = "".join(_extract_text(child) for child in node.children)
+            header_text = "".join(_extract_text(child) for child in (node.children or []))
             headers.append(header_text.strip())
         for child in getattr(node, "children", []):
             if child is not None:
