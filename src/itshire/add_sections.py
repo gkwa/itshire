@@ -113,7 +113,7 @@ def main(directory):
     ]
 
     for file_path in filtered_files:
-        logging.info(f"Processing file: {file_path}")
+        logging.debug(f"Processing file: {file_path}")
         try:
             existing_headers = extract_headers(file_path)
             missing_sections = [
@@ -126,4 +126,4 @@ def main(directory):
         except Exception as e:
             logging.error(f"Error processing file {file_path}: {str(e)}")
 
-    print("Sections added successfully.")
+    logging.debug("Sections added successfully.")
