@@ -1,0 +1,31 @@
+{
+  "stores": [
+    {"name": "Amazon Fresh"},
+    {"name": "Amazon.com"},
+    {"name": "Central Co-op"},
+    {"name": "Chef's Store"},
+    {"name": "Costco"},
+    {"name": "Dong Hing Market"},
+    {"name": "Franz Bakery"},
+    {"name": "Fred Meyer"},
+    {"name": "Grocery Outlet"},
+    {"name": "H Mart"},
+    {"name": "Hau Hau Market"},
+    {"name": "Home Depot"},
+    {"name": "India Depot Indian Grocery, Kitchen & Bakery"},
+    {"name": "Lam's Seafood Asian Market"},
+    {"name": "Lowe's"},
+    {"name": "M2M"},
+    {"name": "Pacific Supply"},
+    {"name": "PCC"},
+    {"name": "QFC"},
+    {"name": "Safeway"},
+    {"name": "Target"},
+    {"name": "Than Son Tofu and Bakery"},
+    {"name": "Trader Joes"},
+    {"name": "Uwajimaya"},
+    {"name": "Walgreens"},
+    {"name": "Walmart"},
+    {"name": "Whole Foods"}
+  ]
+}

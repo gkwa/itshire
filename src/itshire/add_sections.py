@@ -4,6 +4,8 @@ import pathlib
 import frontmatter
 import mistletoe
 
+import itshire.stores_loader
+
 
 def extract_headers(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
@@ -82,35 +84,7 @@ def main(directory):
     filtered_files = filter_markdown_files(markdown_files)
     logging.debug(f"Filtered files: {filtered_files}")
 
-    stores = [
-        "Amazon Fresh",
-        "Amazon.com",
-        "Central Co-op",
-        "Chef's Store",
-        "Costco",
-        "Dong Hing Market",
-        "Franz Bakery",
-        "Fred Meyer",
-        "Grocery Outlet",
-        "H Mart",
-        "Hau Hau Market",
-        "Home Depot",
-        "India Depot Indian Grocery, Kitchen & Bakery",
-        "Lam's Seafood Asian Market",
-        "Lowe's",
-        "M2M",
-        "Pacific Supply",
-        "PCC",
-        "QFC",
-        "Safeway",
-        "Target",
-        "Than Son Tofu and Bakery",
-        "Trader Joes",
-        "Uwajimaya",
-        "Walgreens",
-        "Walmart",
-        "Whole Foods",
-    ]
+    stores = itshire.stores_loader.load_stores()
 
     for file_path in filtered_files:
         logging.debug(f"Processing file: {file_path}")
